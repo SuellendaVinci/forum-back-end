@@ -10,6 +10,7 @@ const users = JSON.parse(
   fs.readFileSync(`${__dirname}/src/MOCK/MOCK_DATA.json`),
 );
 
+// Get All Users Route
 app.get('/users', (req, res) => {
   res.status(200).json({
     status: 'sucess',
@@ -20,6 +21,19 @@ app.get('/users', (req, res) => {
   });
 });
 
+// Get User By ID Route
+app.get('/users/:id', (req, res) => {
+  const { id } = req.params;
+  const user = users.filter(user => user.id === id);
+  res.status(200).json({
+    status: 'sucess',
+    data: {
+      user,
+    },
+  });
+});
+
+// Create New User Route
 app.post('/users', (req, res) => {
   const id = uuidv4();
   const user = {
@@ -29,10 +43,6 @@ app.post('/users', (req, res) => {
 
   res.send(user);
 });
-
-app.patch('/users', (req, res) => {});
-
-app.delete('/users', (req, res) => {});
 
 const PORT = 3001;
 
