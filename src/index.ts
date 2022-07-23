@@ -5,8 +5,12 @@ AppDataSource.initialize().then(async () => {
 
     console.log("Inserting a new user into the database...")
     const user = new User()
+    user.name = "Suellen Camargo"
     user.email = "suellen_fleur@hotmail.com"
     user.password = "123456"
+    user.gender = "Female"
+    user.ocupation = "Full Stack Developer Student"
+    user.city = "Curitiba"
     await AppDataSource.manager.save(user)
     console.log("Saved a new user with id: " + user.id)
 
@@ -17,6 +21,3 @@ AppDataSource.initialize().then(async () => {
     console.log("Here you can setup and run express / fastify / any other framework.")
 
 }).catch(error => console.log(error))
- // user.firstName = "Timber"
-    // user.lastName = "Saw"
-    // user.age = 25

@@ -10,6 +10,12 @@ export class User {
         nullable: false,
         length: 255,
     }) 
+    name: string
+
+    @Column({
+        nullable: false,
+        length: 255,
+    }) 
     email: string
 
     @Column({
@@ -17,4 +23,23 @@ export class User {
         length: 255,
     })
     password: string
+
+    @Column({
+        nullable: true,
+        length: 255,
+    })
+    gender: string
+
+    @Column({
+        nullable: false,
+        length: 255,
+    })
+    ocupation: string
+
+    @Column({
+        nullable: false,
+        length: 255,
+    })
+    city: string
+
 }
