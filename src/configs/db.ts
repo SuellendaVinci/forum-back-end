@@ -1,3 +1,4 @@
+import { Role } from './../models/Role';
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { User } from "../models/User"
@@ -11,7 +12,7 @@ export const AppDataSource = new DataSource({
     database: "forum_db",
     synchronize: true,
     logging: false,
-    entities: [User],
+    entities: [User, Role],
     migrations: [],
     subscribers: [],
 })

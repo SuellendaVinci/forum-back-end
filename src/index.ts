@@ -1,9 +1,15 @@
 import { AppDataSource } from "./configs/db"
 import { User } from "./models/User"
+import { Role } from './models/Role';
 
 AppDataSource.initialize().then(async () => {
 
     console.log("Inserting a new user into the database...")
+
+    const role = new Role() 
+    role.name = "Administrator"
+    await AppDataSource.manager.save(role)
+
     const user = new User()
     user.name = "Suellen Camargo"
     user.email = "suellen_fleur@hotmail.com"
@@ -11,6 +17,7 @@ AppDataSource.initialize().then(async () => {
     user.gender = "Female"
     user.ocupation = "Full Stack Developer Student"
     user.city = "Curitiba"
+    user.role = role
     await AppDataSource.manager.save(user)
     console.log("Saved a new user with id: " + user.id)
 
