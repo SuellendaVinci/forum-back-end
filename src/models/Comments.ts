@@ -13,6 +13,6 @@ export class Comment {
     }) 
     message: string;
 
-    @ManyToOne(() => User, (user) => user.posts)
+    @ManyToOne(() => User, (user) => user.comments)
     user: User;
 }
