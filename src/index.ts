@@ -29,6 +29,7 @@ AppDataSource.initialize().then(async () => {
     await AppDataSource.manager.save(post)
 
     const comment = new Comment()
+    comment.user = user
     comment.message = "Our Goal is: Equal Access To Quality Education!"
     await AppDataSource.manager.save(comment)
 
