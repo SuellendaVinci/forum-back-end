@@ -2,6 +2,7 @@ import { AppDataSource } from "./configs/db"
 import { User } from "./models/User"
 import { Role } from './models/Role';
 import { Post } from './models/Post';
+import { Comment } from './models/Comments';
 
 AppDataSource.initialize().then(async () => {
 
@@ -26,6 +27,10 @@ AppDataSource.initialize().then(async () => {
     post.message = "Cream Crackers: the best team of this hackathon! o/"
     post.user = user
     await AppDataSource.manager.save(post)
+
+    const comment = new Comment()
+    comment.message = "Our Goal is: Equal Access To Quality Education!"
+    await AppDataSource.manager.save(comment)
 
     console.log("Loading users from the database...")
     const users = await AppDataSource.manager.find(User)
