@@ -1,9 +1,10 @@
-import { Role } from './../models/Role';
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { User } from "../models/User"
 import { Post } from '../models/Post';
 import { Comment } from '../models/Comments';
+import { Role } from './../models/Role';
+import { Like } from '../models/Like'
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -14,7 +15,7 @@ export const AppDataSource = new DataSource({
     database: "forum_db",
     synchronize: true,
     logging: false,
-    entities: [User, Role, Post, Comment],
+    entities: [User, Role, Post, Comment, Like],
     migrations: [],
     subscribers: [],
 })
