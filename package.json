@@ -20,6 +20,10 @@
    "scripts": {
       "start": "ts-node src/index.ts",
       "typeorm": "typeorm-ts-node-commonjs",
-      "start:dev": "nodemon app.ts"
+      "start:dev": "nodemon app.ts",
+      "migration:create": "npm run typeorm -- migration:create src/migrations/CREATE",
+      "migration:generate": "npm run typeorm -- -d src/configs/db migration:generate src/migrations/GENERATE",
+      "migration:run": "npm run typeorm -- -d src/configs/db migration:run",
+      "migration:revert": "npm run typeorm -- -d src/configs/db migration:revert"
    }
 }
