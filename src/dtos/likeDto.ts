@@ -1,5 +1,5 @@
 export default interface LikeDto {
-    id: string;
-    userId: string;
-    commentId: string;
+  id: string;
+  userId: number;
+  commentId: number;
 }
