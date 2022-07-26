@@ -3,7 +3,7 @@ import { AppDataSource } from './configs/db';
 import { User } from './models/User';
 import { Role } from './models/Role';
 import { Post } from './models/Post';
-import { Comment } from './models/Comments';
+import { Comment } from './models/Comment';
 import { Like } from './models/Like';
 
 const PORT = 3333;

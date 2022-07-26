@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { Role } from './Role';
 import { Post } from './Post';
-import { Comment } from './Comments';
+import { Comment } from './Comment';
 import { Like } from './Like';
 
 @Entity('users')

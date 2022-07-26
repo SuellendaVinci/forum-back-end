@@ -2,7 +2,7 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { User } from "../models/User"
 import { Post } from '../models/Post';
-import { Comment } from '../models/Comments';
+import { Comment } from '../models/Comment';
 import { Role } from './../models/Role';
 import { Like } from '../models/Like'
 
