@@ -1,4 +1,5 @@
 import express from 'express';
+import routes from './routes';
 import { AppDataSource } from './configs/db';
 import { User } from './models/User';
 import { Role } from './models/Role';
@@ -11,47 +12,49 @@ const app = express();
 
 app.use(express.json());
 
-app.listen(3333, () => {
+app.use(routes);
+
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 
   AppDataSource.initialize()
     .then(async () => {
       console.log('Inserting a new user into the database...');
 
-      const role = new Role();
-      role.name = 'Administrator';
-      await AppDataSource.manager.save(role);
+      // const role = new Role();
+      // role.name = 'Administrator';
+      // await AppDataSource.manager.save(role);
 
-      const user = new User();
-      user.name = 'Suellen Camargo';
-      user.email = 'suellen_fleur@hotmail.com';
-      user.password = '123456';
-      user.gender = 'Female';
-      user.ocupation = 'Full Stack Developer Student';
-      user.city = 'Curitiba';
-      user.role = role;
-      await AppDataSource.manager.save(user);
-      console.log('Saved a new user with id: ' + user.id);
+      // const user = new User();
+      // user.name = 'Suellen Camargo';
+      // user.email = 'suellen_fleur@hotmail.com';
+      // user.password = '123456';
+      // user.gender = 'Female';
+      // user.ocupation = 'Full Stack Developer Student';
+      // user.city = 'Curitiba';
+      // user.role = role;
+      // await AppDataSource.manager.save(user);
+      // console.log('Saved a new user with id: ' + user.id);
 
-      const post = new Post();
-      post.message = 'Cream Crackers: the best team of this hackathon! o/';
-      post.user = user;
-      await AppDataSource.manager.save(post);
+      // const post = new Post();
+      // post.message = 'Cream Crackers: the best team of this hackathon! o/';
+      // post.user = user;
+      // await AppDataSource.manager.save(post);
 
-      const comment = new Comment();
-      comment.user = user;
-      comment.post = post;
-      comment.message = 'Our Goal is: Equal Access To Quality Education!';
-      await AppDataSource.manager.save(comment);
+      // const comment = new Comment();
+      // comment.user = user;
+      // comment.post = post;
+      // comment.message = 'Our Goal is: Equal Access To Quality Education!';
+      // await AppDataSource.manager.save(comment);
 
-      const like = new Like();
-      like.user = user;
-      like.comment = comment;
-      await AppDataSource.manager.save(like);
+      // const like = new Like();
+      // like.user = user;
+      // like.comment = comment;
+      // await AppDataSource.manager.save(like);
 
-      console.log('Loading users from the database...');
-      const users = await AppDataSource.manager.find(User);
-      console.log('Loaded users: ', users);
+      // console.log('Loading users from the database...');
+      // const users = await AppDataSource.manager.find(User);
+      // console.log('Loaded users: ', users);
 
       console.log(
         'Here you can setup and run express / fastify / any other framework.',
