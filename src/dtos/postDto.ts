@@ -1,5 +1,5 @@
 export default interface PostDto {
-    id: string;
-    message: string;
-    userId: string;
+  id: string;
+  message: string;
+  userId: number;
 }
