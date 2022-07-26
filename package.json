@@ -18,7 +18,7 @@
       "uuid": "^8.3.2"
    },
    "scripts": {
-      "start": "ts-node src/index.ts",
+      "start": "ts-node src/server.ts",
       "typeorm": "typeorm-ts-node-commonjs",
       "start:dev": "nodemon app.ts",
       "migration:create": "npm run typeorm -- migration:create src/migrations/CREATE",
