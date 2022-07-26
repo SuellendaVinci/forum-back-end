@@ -3,6 +3,7 @@ export default interface UserDto {
   name: string;
   email: string;
   password: string;
+  passwordConfirmation:string;
   gender: string;
   ocupation: string;
   city: string;

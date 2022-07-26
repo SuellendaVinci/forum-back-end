@@ -5,8 +5,16 @@ import CreateUserUseCase from '../../useCases/users/createUser';
 const userRoutes = Router();
 
 userRoutes.post('/', async (req, res) => {
-  const { name, email, password, gender, ocupation, city, roleId } =
-    req.body as UserDto;
+  const {
+    name,
+    email,
+    password,
+    passwordConfirmation,
+    gender,
+    ocupation,
+    city,
+    roleId,
+  } = req.body as UserDto;
 
   const createUserUseCase = new CreateUserUseCase();
 
@@ -14,6 +22,7 @@ userRoutes.post('/', async (req, res) => {
     name,
     email,
     password,
+    passwordConfirmation,
     gender,
     ocupation,
     city,

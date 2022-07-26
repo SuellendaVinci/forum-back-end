@@ -20,11 +20,19 @@ export default class CreateUserUseCase {
     name,
     email,
     password,
+    passwordConfirmation,
     gender,
     ocupation,
     city,
     roleId,
   }: Omit<UserDto, 'id'>): Promise<HttpResponseDto | null> {
+    if (passwordConfirmation !== password) {
+      return {
+        statusCode: 400,
+        data: { error: 'A confirmação do password está incorreta' },
+      };
+    }
+
     const user = new User();
     user.name = name;
     user.email = email;
