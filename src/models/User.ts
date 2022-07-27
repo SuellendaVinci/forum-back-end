@@ -23,6 +23,7 @@ export class User {
 
   @Column({
     nullable: false,
+    unique: true,
     length: 255,
   })
   email: string;
@@ -40,13 +41,13 @@ export class User {
   gender: string;
 
   @Column({
-    nullable: false,
+    nullable: true,
     length: 255,
   })
   ocupation: string;
 
   @Column({
-    nullable: false,
+    nullable: true,
     length: 255,
   })
   city: string;

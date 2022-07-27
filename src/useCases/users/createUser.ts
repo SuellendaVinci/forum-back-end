@@ -21,9 +21,9 @@ export default class CreateUserUseCase {
     email,
     password,
     passwordConfirmation,
-    gender,
-    ocupation,
-    city,
+    gender = null,
+    ocupation = null,
+    city = null,
     roleId,
   }: Omit<UserDto, 'id'>): Promise<HttpResponseDto | null> {
     if (passwordConfirmation !== password) {
