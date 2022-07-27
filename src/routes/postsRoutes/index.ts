@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import PostDto from '../../dtos/postDto';
 import CreatePostUseCase from '../../useCases/posts/createPost';
-import jwt from 'jsonwebtoken';
+import ListPostsUseCase from '../../useCases/posts/listPosts';
 import verifyUser from '../../services/verifyUser';
 
 const postRoutes = Router();
@@ -23,6 +23,16 @@ postRoutes.post('/', async (req, res) => {
     message,
     userId: verifyUserResponse.data.userId,
   });
+
+  const { statusCode, data } = response;
+
+  res.status(statusCode).send(data);
+});
+
+postRoutes.get('/', async (req, res) => {
+  const listPostsUseCase = new ListPostsUseCase();
+
+  const response = await listPostsUseCase.execute();
 
   const { statusCode, data } = response;
 
