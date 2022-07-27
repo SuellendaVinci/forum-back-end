@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 const verifyUser = async token => {
   try {
-    const jwtData = jwt.verify(token, 'forum');
+    const jwtData = jwt.verify(token, process.env.JWTSECRET || 'forum');
 
     const usersRepository = UsersRepository;
 

@@ -3,7 +3,7 @@ import routes from './routes';
 import cors from 'cors';
 import { AppDataSource } from './configs/db';
 
-const PORT = 3333;
+const PORT = process.env.PORT || 3333;
 const app = express();
 
 app.use(cors());
