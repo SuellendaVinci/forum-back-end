@@ -28,7 +28,7 @@ export default class LoginUseCase {
       };
     }
 
-    const token = jwt.sign({ id: user.id }, 'forum', {
+    const token = jwt.sign({ id: user.id }, process.env.JWTSECRET || 'forum', {
       expiresIn: 60 * 60 * 24 * 7,
     });
 
