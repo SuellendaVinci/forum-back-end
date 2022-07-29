@@ -4,7 +4,7 @@ import CommentsRepository from '../../repositories/commentsRepository';
 import CommentDto from '../../dtos/commentDto';
 
 import HttpResponseDto from '../../dtos/httpResponseDto';
-import updateCommentsValidation from '../../validations/comments/updateCommentsValidation';
+import updateCommentValidations from '../../validations/comments/updateCommentValidations';
 
 export default class UpdateCommentUseCase {
   private _commentsRepository: Repository<Comment>;
@@ -23,7 +23,10 @@ export default class UpdateCommentUseCase {
       relations: { user: true },
     });
 
-    const responseValidation = updateCommentsValidation({ comment, userId });
+    const responseValidation = updateCommentValidations({
+      comment,
+      userId,
+    });
 
     if (responseValidation.statusCode !== 200) {
       return responseValidation;

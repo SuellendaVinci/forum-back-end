@@ -1,6 +1,6 @@
 import HttpResponseDto from '../../dtos/httpResponseDto';
 
-const updateCommentsValidation = ({
+const isUserCommentOwnerValidation = ({
   comment,
   userId,
 }: any): HttpResponseDto => {
@@ -14,4 +14,4 @@ const updateCommentsValidation = ({
   return { statusCode: 200, data: null };
 };
 
-export default updateCommentsValidation;
+export default isUserCommentOwnerValidation;
