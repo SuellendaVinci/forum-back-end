@@ -1,5 +1,5 @@
 export default interface CommentDto {
-  id: string;
+  id: number;
   message: string;
   userId: number;
   postId: number;
