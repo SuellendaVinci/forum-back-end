@@ -13,7 +13,7 @@ export default class ListPostsUseCase {
 
   public async execute(): Promise<HttpResponseDto | null> {
     const post = await this._postsRepository.find({
-      relations: { comments: true },
+      relations: { comments: true, user: true },
     });
 
     return { statusCode: 200, data: post };
